@@ -34,14 +34,12 @@ def estimate(hashes, k):
   #calculate estimate
   estimate = (m ** 2) * mean
 
-  #bias can be approximated with the formula 0.7213 / (1 + (1.079/2^k)) for k > 6
-  #or for values of k <= 6 we can use pre-calculated bias factors
+  #bias can be approximated with the formula 0.7213 / (1 + (1.079/2^k)) for k > 5
+  #or for values of k <= 5 we can use pre-calculated bias factors
   if k <= 4:
     BIAS = 0.673
   elif k == 5:
     BIAS == 0.697
-  elif k == 6:
-    BIAS == 0.709
   else:
     BIAS = 0.7213 / (1 + (1.079 / m))
 
