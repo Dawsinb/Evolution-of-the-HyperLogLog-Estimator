@@ -9,10 +9,10 @@ import sys
 #These tests rely on generating random 64 bit integers and treating them as a hash. The 64 bit space is sufficiently large and thus it assumes that there are no duplicates in the generation of these numbers and that the number of hashes is the cardinality.
 
 #test paramaters, # of tests, items per test, bits for buckets, print every test or not
-TESTS = 20
+TESTS = 5
 ITEMS = 1000000
 BUCKETS = 16
-PRINT_ALL = False
+PRINT_ALL = True
 
 #create arrays to store results for each algorithm
 fm = []
@@ -26,10 +26,10 @@ for i in range(0, TESTS):
   sys.stdout.write("Running test " + str(i + 1) + " of " + str(TESTS) + "...")
   sys.stdout.flush()
   
-  #Generate test hashes
+  #Generate test hashes (random 32 bit integer)
   hashes = []
   for i in range(0, ITEMS):
-    hashes.append('{:064b}'.format(random.randint(0, 18446744073709551615)))
+    hashes.append('{:064b}'.format(random.randint(0, 2147483647)))
   
   #add to results array
   fm.append(FlajoletMartin.estimate(hashes))

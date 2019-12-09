@@ -14,7 +14,7 @@ def estimate(hashes):
         break
 
     #set the corresponding index of the bitmap to 1
-    bitMap[rank] = "1"
+    bitMap[rank - 1] = "1"
   
   #get the lowest index of 0
   r = 0
